@@ -9,7 +9,20 @@
 import Foundation
 
 class CommandLineParser {
+    func usage() {
+        print("Usage:")
+        print("Formatter -x <filename>")
+        print("Where:")
+        print("\t-x indicates that the file is XML")
+        print("\t<filename> is the name (including path) of the file to parse")
+    }
+    
     func parseCommandLine() {
+        if CommandLine.argc != 3 {
+            usage()
+            return
+        }
+        
         let arguments = CommandLine.arguments
         for i in Int(1)..<Int(CommandLine.argc) {
             switch(arguments[i]) {
@@ -20,16 +33,5 @@ class CommandLineParser {
                 print("File name: \(arguments[i])")
             }
         }
-        /*
-        for argument in CommandLine.arguments {
-            switch argument {
-            case "-x":
-                print("Formatting XML File")
-                
-            default:
-                print("File name: \(argument)")
-            }
-        }
- */
     }
 }
