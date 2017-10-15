@@ -9,4 +9,8 @@
 import Foundation
 
 let parser = CommandLineParser()
-parser.parseCommandLine()
+if let formatter = parser.parseCommandLine() {
+    print("Got a valid formatter")
+} else {
+    print("Formatter is nil, check file, including path.")
+}
