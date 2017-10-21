@@ -22,4 +22,8 @@ class Formatter {
         
         return false;
     }
+    
+    func format() -> Bool {
+        return false
+    }
 }

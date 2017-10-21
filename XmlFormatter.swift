@@ -13,4 +13,25 @@ class XmlFormatter: Formatter {
     required init(withUrl: URL) {
         super.init(withUrl: withUrl)
     }
+    
+    override func format() -> Bool {
+        let input = openAndReadInputFile()
+        if input.isEmpty {
+            return false
+        }
+        
+        return true
+    }
+    
+    func openAndReadInputFile() -> Data {
+        let inputData = Data()
+        do {
+            let fileHandle = try FileHandle(forReadingFrom: inputUrl)
+            return fileHandle.readDataToEndOfFile()
+        } catch {
+            
+        }
+        
+        return inputData
+    }
 }
